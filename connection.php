@@ -57,6 +57,15 @@ class Bank{
         return $stmt;
     }
 
+    public function createNewCard($number, $balance){
+        $sql="INSERT INTO cards (number, balance) VALUES(:card_number, :balance);";
+        $stmt= $this->conn->prepare($sql);
+        $stmt->bindValue(":card_number", $number);
+        $stmt->bindValue(":balance", $balance);
+        $stmt->execute();
+    
+    }
+    
 }
 
     

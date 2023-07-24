@@ -14,6 +14,9 @@
         <input type="submit" name="transact" value="TRANSACT">
         <input type="submit" name="show_all_transactions" value="Show ALL Transactions">
     </form>
+    <form action="view2.php" method="POST">
+        <input type="submit" name="create_new_card" value="Create new Card">
+    </form>
 </body>
 </html>
 
