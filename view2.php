@@ -11,6 +11,7 @@
         <input type="text" name="card_number" placeholder="create card number">
         <input type="text" name="balance" placeholder="input balance">
         <input type="submit" name="create_card" value="Create Card"> 
+        <input type="submit" name="delete_card" value="Delete Card">
     </form>
 </body>
 </html>
@@ -34,6 +35,18 @@ if(isset($_POST["create_card"])){
 }   
 }
 
+if(isset($_POST["delete_card"])){
+    if (empty($_POST["card_number"])){
+        echo "введите номер карты";
+    }
+    else{
+    $res = new Bank();
+    $number = $_POST["card_number"];
+    $balance = $_POST["balance"];
+    $res->deleteCard($number, (int) $balance);
+    header("Location:http://localhost/php_files/Bank/view.php");
+}   
+}
 
 
 ?>

@@ -63,9 +63,15 @@ class Bank{
         $stmt->bindValue(":card_number", $number);
         $stmt->bindValue(":balance", $balance);
         $stmt->execute();
-    
     }
-    
+
+    public function deleteCard($number, $balance){
+        $sql="DELETE FROM cards WHERE number = :card_number and balance = :balance;";
+        $stmt= $this->conn->prepare($sql);
+        $stmt->bindValue(":card_number", $number);
+        $stmt->bindValue(":balance", $balance);
+        $stmt->execute();
+    }
 }
 
     
