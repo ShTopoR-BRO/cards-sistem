@@ -44,9 +44,9 @@ if(isset($_POST["show_all_transactions"])){
     $data = $res->getAllTransactions();
     foreach ($data as $row){
         echo "ПЕРЕВОД" . " ";
-        echo "отправитель:" . $row["card_append"] . " ";
+        echo "получатель:" . $row["card_append"] . " ";
         echo "сумма:" . $row["descreption"] . " ";
-        echo "получатель:" . $row["card_pop"] . " ";
+        echo "отправитель:" . $row["card_pop"] . " ";
         echo "дата:" . $row["date"] . " " . "</br>";
     }
 }

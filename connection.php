@@ -1,9 +1,20 @@
 <?php
+
 class Bank{
     private $conn;
+    protected  $conf;
+    protected  $DBHost;
+	protected  $DBPassword;
+	protected  $DBUser;
+	protected  $DBName;
 
     public function __construct(){
-        $this->conn = new PDO("mysql:host=localhost;dbname=bank", "root", "190687");
+        $this->conf=json_decode(file_get_contents("env.json"));
+		$this->DBHost=$this->conf->DBHOST;
+		$this->DBPassword=$this->conf->DBPASSWORD;
+		$this->DBUser=$this->conf->DBUSER;
+		$this->DBName=$this->conf->DBNAME;
+        $this->conn = new PDO("mysql:host=".$this->DBHost.";dbname=".$this->DBName, $this->DBUser, $this->DBPassword);
     }
     
     public function getCards(){
